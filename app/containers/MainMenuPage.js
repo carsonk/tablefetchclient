@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { connect } from 'react-redux'
 import { StyleSheet } from 'react-native';
 
@@ -8,33 +8,29 @@ import CardLink from '../components/CardLink'
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     height: '100%',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    backgroundColor: 'steelblue',
-    alignContent: 'space-around'
   },
-  homeLink: {
-    width: '40%',
-    height: '30%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white'
-  },
-  homeLinkText: {
-    fontSize: 20
+  innerContainer: {
+      width: '100%',
+      height: '100%',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'space-around'
   }
 });
 
 class MainMenuPage extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <CardLink to="/order" text="ORDER" />
-        <CardLink to="/checkout" text="CHECKOUT" />
-        <CardLink to="/help" text="REQUEST WAIT STAFF" />
-      </View>
+      <Image source={require('../../res/home_bg.jpg')} style={styles.container}>
+        <View style={styles.innerContainer}>
+          <CardLink to="/order" text="Order" />
+          <CardLink to="/checkout" text="Checkout" />
+          <CardLink to="/help" text="Request Wait Staff" />
+        </View>
+      </Image>
     )
   }
 }

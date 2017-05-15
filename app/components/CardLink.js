@@ -16,19 +16,20 @@ const CardLink = ({ children, to, text }) => {
 
 const styles = StyleSheet.create({
   homeLink: {
-    width: '40%',
-    height: '30%'
+    width: '30%',
+    height: '20%'
   },
   homeLinkView: {
     width: '100%',
     height: '100%',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
-    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'rgba(52,52,52,.7)',
     padding: 20
   },
   homeLinkText: {
-    fontSize: 20
+    fontSize: 20,
+    color: 'white'
   }
 });
 
