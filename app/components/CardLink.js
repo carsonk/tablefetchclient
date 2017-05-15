@@ -25,10 +25,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(52,52,52,.7)',
-    padding: 20
+    padding: 20,
+    borderRadius: 5
   },
   homeLinkText: {
-    fontSize: 20,
+    fontSize: 30,
     color: 'white'
   }
 });
