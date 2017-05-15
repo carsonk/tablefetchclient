@@ -24,7 +24,7 @@ class Root extends Component {
     return (
       <Provider store={store}>
         <NativeRouter history={history}>
-          <Routes />
+          <Routes history={history} />
         </NativeRouter>
       </Provider>
     )

@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(52,52,52,.7)',
-    padding: 20,
-    borderRadius: 5
+    padding: 10,
+    borderRadius: 8
   },
   homeLinkText: {
     fontSize: 30,

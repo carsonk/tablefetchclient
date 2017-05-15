@@ -35,9 +35,6 @@ class MainMenuPage extends Component {
   }
 }
 
-
-
-
 const mapStateToProps = (state, ownProps) => ({
 
 });
