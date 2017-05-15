@@ -1,38 +1,22 @@
 {
-  "name": "tablefetchclient",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest",
-    "postinstall": "rndebugger-open"
-  },
-  "dependencies": {
-    "humps": "^2.0.0",
-    "lodash": "^4.17.4",
-    "normalizr": "^3.2.2",
-    "prop-types": "^15.5.8",
-    "react": "16.0.0-alpha.12",
-    "react-native": "^0.45.0-rc.0",
-    "react-native-redux-router": "^1.0.7",
-    "react-navigation": "^1.0.0-beta.9",
-    "react-redux": "^5.0.4",
-    "react-router-native": "^4.1.1",
-    "react-router-redux": "^4.0.8",
-    "redux": "^3.6.0",
-    "redux-logger": "^3.0.1",
-    "redux-thunk": "^2.2.0"
-  },
-  "devDependencies": {
-    "babel-jest": "^20.0.1",
-    "babel-preset-react-native": "^1.9.2",
-    "jest": "20.0.1",
-    "react-native-debugger-open": "^0.3.9",
-    "react-test-renderer": "16.0.0-alpha.6",
-    "redux-devtools-extension": "^2.13.2",
-    "remote-redux-devtools": "^0.5.10"
-  },
-  "jest": {
-    "preset": "react-native"
-  }
+	"name": "tablefetchclient",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest"
+	},
+	"dependencies": {
+		"react": "16.0.0-alpha.6",
+		"react-native": "0.44.0"
+	},
+	"devDependencies": {
+		"babel-jest": "20.0.1",
+		"babel-preset-react-native": "1.9.2",
+		"jest": "20.0.1",
+		"react-test-renderer": "16.0.0-alpha.6"
+	},
+	"jest": {
+		"preset": "react-native"
+	}
 }
