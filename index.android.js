@@ -8,24 +8,48 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  Image,
   Text,
   View
 } from 'react-native';
+import { Router, Route, Switch } from 'react-router'
+
+import CardLink from './app/components/CardLink'
+
+const mainStyles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+  },
+  innerContainer: {
+      width: '100%',
+      height: '100%',
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      justifyContent: 'space-around'
+  }
+});
+
+class MainMenuPage extends Component {
+  render() {
+    return (
+      <Image source={require('./res/home_bg.jpg')} style={mainStyles.container}>
+        <View style={mainStyles.innerContainer}>
+          <CardLink to="/order" text="Order" />
+          <CardLink to="/checkout" text="Checkout" />
+          <CardLink to="/help" text="Request Wait Staff" />
+        </View>
+      </Image>
+    )
+  }
+}
 
 export default class tablefetchclient extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <MainMenuPage />
       </View>
     );
   }
