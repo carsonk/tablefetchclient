@@ -13,6 +13,7 @@ import {
   View
 } from 'react-native';
 import { Router, Route, Switch } from 'react-router'
+import { NativeRouter } from 'react-router-native'
 
 import CardLink from './app/components/CardLink'
 
@@ -48,9 +49,11 @@ class MainMenuPage extends Component {
 export default class tablefetchclient extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <MainMenuPage />
-      </View>
+      <NativeRouter>
+        <View style={styles.container}>
+          <MainMenuPage />
+        </View>
+      </NativeRouter>
     );
   }
 }
