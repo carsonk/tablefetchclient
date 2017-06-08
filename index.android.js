@@ -14,8 +14,11 @@ import {
 } from 'react-native';
 import { Router, Route, Switch } from 'react-router'
 import { NativeRouter } from 'react-router-native'
+import { Provider } from 'react-redux'
 
 import CardLink from './app/components/CardLink'
+
+import configureStore from './app/configureStore'
 
 const mainStyles = StyleSheet.create({
   container: {
