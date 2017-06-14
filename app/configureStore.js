@@ -7,6 +7,7 @@ import rootReducer from './reducers'
 export default function configureStore() {
   let store = createStore(
     rootReducer,
+    {},
     applyMiddleware(thunk, logger)
   );
   return store;

@@ -2,7 +2,7 @@ export const REQUEST_MENU = 'REQUEST_MENU';
 export const RECEIVE_MENU = 'RECEIVE_MENU';
 export const RECEIVE_MENU_FAIL = 'RECEIVE_MENU_FAIL';
 
-const requestApiUrl = 'http://localhost:8000/api';
+const requestApiUrl = 'http://10.0.2.2:8000/api';
 
 function requestMenu() {
   return {

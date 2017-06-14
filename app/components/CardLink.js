@@ -1,27 +1,21 @@
 import React from 'react'
-import { Text, View } from 'react-native'
+import { TouchableHighlight, Text, View } from 'react-native'
 import { Link } from 'react-router-native'
 import PropTypes from 'prop-types'
 import { StyleSheet } from 'react-native';
 
-const CardLink = ({ children, to, text }) => {
+const CardLink = ({ text, onPress }) => {
   return (
-    <Link to={to} style={styles.homeLink}>
-      <View style={styles.homeLinkView}>
-        <Text style={styles.homeLinkText}>{text}</Text>
-      </View>
-    </Link>
+    <TouchableHighlight style={styles.homeLinkView} onPress={onPress}>
+      <Text style={styles.homeLinkText}>{text}</Text>
+    </TouchableHighlight>
   );
 };
 
 const styles = StyleSheet.create({
-  homeLink: {
-    width: '30%',
-    height: '20%'
-  },
   homeLinkView: {
-    width: '100%',
-    height: '100%',
+    width: '30%',
+    height: '20%',
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(52,52,52,.7)',
@@ -35,8 +29,8 @@ const styles = StyleSheet.create({
 });
 
 CardLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  text: PropTypes.string
+  onPress: PropTypes.func.isRequired,
+  text: PropTypes.string.isRequired
 };
 
 export default CardLink;

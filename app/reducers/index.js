@@ -2,7 +2,7 @@ import { combineReducers } from 'redux'
 import { normalize } from 'normalizr'
 
 import { REQUEST_MENU, RECEIVE_MENU, RECEIVE_MENU_FAIL } from '../actions'
-import { menuCategorySchema, menuIngredientSchema, menuItemSchema } from '../schemas'
+import { menuItemSchema } from '../schemas'
 
 const defaultMenuState = {
   categories: [],
@@ -20,7 +20,8 @@ function menu(state = defaultMenuState, action) {
         fetchingMenu: true
       }
     case RECEIVE_MENU:
-      const normalizedData = normalize(action.results, menuItemSchema);
+      // const normalizedData = normalize(action.results, menuItemSchema);
+      const normalizedData = {};
       const entities = normalizedData.entities;
 
       return {
