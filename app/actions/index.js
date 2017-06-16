@@ -13,17 +13,29 @@ function requestMenu() {
 function receiveMenu(json) {
   return {
     type: RECEIVE_MENU,
-    items: json.data.results,
+    items: json.results,
     receivedAt: Date.now()
   }
 }
 
+function receiveMenuFailed(error) {
+  console.log("Error! " + error)
+
+  return {
+    type: RECEIVE_MENU_FAIL,
+    error: error
+  }
+}
+
 function fetchMenu() {
+  const requestMenuUrl = requestApiUrl + '/menu/all'
+
   return dispatch => {
     dispatch(requestMenu());
-    return fetch(requestApiUrl)
+    return fetch(requestMenuUrl)
       .then(response => response.json())
-      .then(json => dispatch(receiveMenu(json)));
+      .then(json => dispatch(receiveMenu(json)))
+      .catch(error => dispatch(receiveMenuFailed(error)))
   }
 }
 

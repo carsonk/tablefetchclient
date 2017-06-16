@@ -7,12 +7,16 @@ import { NativeRouter } from 'react-router-native'
 import { Provider } from 'react-redux'
 import { StackNavigator } from 'react-navigation'
 
-import HomeScreen from './app/components/HomeScreen'
+import HomeScreen from './app/containers/HomeScreen'
+import OrderScreen from './app/containers/OrderScreen'
 
 import configureStore from './app/configureStore'
 
+const store = configureStore()
+
 const routesConfig = {
-  Home: { screen: HomeScreen }
+  Home: { screen: HomeScreen },
+  Order: { screen: OrderScreen }
 }
 
 const navigatorConfig = {
@@ -25,7 +29,9 @@ const App = StackNavigator(routesConfig, navigatorConfig);
 export default class tablefetchclient extends Component {
   render() {
     return (
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     );
   }
 }
