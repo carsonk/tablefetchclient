@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
-import menu from './menu'
-import order from './order'
+import menu from "./menu";
+import order from "./order";
 
 const rootReducer = combineReducers({
   menu,

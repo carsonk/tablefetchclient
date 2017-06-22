@@ -1,6 +1,5 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from "react-native";
 
-const global = StyleSheet.create({
-})
+const global = StyleSheet.create({});
 
-export default global
+export default global;

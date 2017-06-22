@@ -1,8 +1,8 @@
-import React from 'react'
-import { TouchableHighlight, Text, View } from 'react-native'
-import { Link } from 'react-router-native'
-import PropTypes from 'prop-types'
-import { StyleSheet } from 'react-native';
+import React from "react";
+import { TouchableHighlight, Text, View } from "react-native";
+import { Link } from "react-router-native";
+import PropTypes from "prop-types";
+import { StyleSheet } from "react-native";
 
 const CardLink = ({ text, onPress }) => {
   return (
@@ -14,17 +14,17 @@ const CardLink = ({ text, onPress }) => {
 
 const styles = StyleSheet.create({
   homeLinkView: {
-    width: '30%',
-    height: '20%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'rgba(52,52,52,.7)',
+    width: "30%",
+    height: "20%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(52,52,52,.7)",
     padding: 10,
     borderRadius: 8
   },
   homeLinkText: {
     fontSize: 30,
-    color: 'white'
+    color: "white"
   }
 });
 

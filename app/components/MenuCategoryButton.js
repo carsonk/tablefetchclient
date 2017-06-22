@@ -1,24 +1,23 @@
-import React from 'react'
-import { TouchableHighlight, Text, StyleSheet } from 'react-native'
+import React from "react";
+import { TouchableHighlight, Text, StyleSheet } from "react-native";
 
-const MenuCategoryButton = ({ title, onPress }) => (
+const MenuCategoryButton = ({ title, onPress }) =>
   <TouchableHighlight style={styles.categoryButton} onPress={onPress}>
     <Text style={styles.categoryButtonText}>{title}</Text>
-  </TouchableHighlight>
-)
+  </TouchableHighlight>;
 
 const styles = StyleSheet.create({
   categoryButton: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderWidth: 0.5,
-    borderColor: '#888',
+    borderColor: "#888",
     padding: 20,
-    width: '48%',
-    margin: '1%'
+    width: "48%",
+    margin: "1%"
   },
   categoryButtonText: {
     fontSize: 20
   }
-})
+});
 
-export default MenuCategoryButton
+export default MenuCategoryButton;

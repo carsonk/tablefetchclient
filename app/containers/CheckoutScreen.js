@@ -1,9 +1,5 @@
-import React, { Component } from 'react'
-import {
-  Text,
-  View,
-  Stylesheet
-} from 'react-native'
+import React, { Component } from "react";
+import { Text, View, Stylesheet } from "react-native";
 
 class CheckoutScreen extends Component {
   render() {
@@ -11,8 +7,8 @@ class CheckoutScreen extends Component {
       <View>
         <Text>Checkout screen</Text>
       </View>
-    )
+    );
   }
 }
 
-export default CheckoutScreen
+export default CheckoutScreen;
