@@ -9,8 +9,6 @@ const MenuCategoryButton = ({ title, onPress }) =>
 const styles = StyleSheet.create({
   categoryButton: {
     backgroundColor: "white",
-    borderWidth: 0.5,
-    borderColor: "#888",
     padding: 20,
     width: "48%",
     margin: "1%"

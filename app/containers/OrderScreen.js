@@ -8,13 +8,17 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { fetchMenuIfNeeded } from "../actions";
+import { changeCategory, fetchMenuIfNeeded } from "../actions";
+
+import CategoryBreadcrumbs from "./CategoryBreadcrumbs";
 
 import MenuCategoryList from "../components/MenuCategoryList";
+import MenuItemsList from "../components/MenuItemsList";
 
 class OrderScreen extends Component {
   constructor(props) {
     super(props);
+    this.onSelectCategory = this.onSelectCategory.bind(this);
   }
 
   componentDidMount() {
@@ -31,14 +35,23 @@ class OrderScreen extends Component {
   getShownItems() {
     const items = Object.values(this.props.items);
     return items.filter(item => {
-      if (this.props.selectedCategory == null) return item.category.length == 0;
-      else return this.props.selectedCategory in item.category;
+      console.log(item);
+      if (this.props.selectedCategory == null) {
+        console.log("Selected category NULL! Checking that");
+        return item.category.length == 0;
+      } else {
+        return item.category.includes(this.props.selectedCategory);
+      }
     });
   }
 
   onOrder(itemId) {}
 
   onCustomize(itemId) {}
+
+  onSelectCategory(categoryId) {
+    this.props.dispatch(changeCategory(categoryId));
+  }
 
   render() {
     const shownCategories = this.getShownCategories();
@@ -51,7 +64,17 @@ class OrderScreen extends Component {
             Categories
             {this.props.fetchingMenu && " (Loading...)"}
           </Text>
-          <MenuCategoryList categories={shownCategories} />
+          <CategoryBreadcrumbs
+            categories={this.props.categories}
+            selectedCategory={this.props.selectedCategory}
+            onSelectCategory={this.onSelectCategory}
+          />
+          {shownCategories.length > 0 &&
+            <MenuCategoryList
+              categories={shownCategories}
+              onCategoryPress={this.onSelectCategory}
+            />}
+          {shownItems.length > 0 && <MenuItemsList items={shownItems} />}
         </View>
         <View style={styles.orderedContainer}>
           <Text style={styles.title}>Ordered</Text>
