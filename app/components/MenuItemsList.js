@@ -7,6 +7,8 @@ import MenuItemCard from "./MenuItemCard";
 const MenuItemsList = props => {
   const items = Object.values(props.items);
 
+  console.log(props);
+
   const itemButtons = items.map(item =>
     <MenuItemCard
       key={item.id}

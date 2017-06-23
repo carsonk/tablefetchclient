@@ -8,8 +8,9 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { changeCategory, fetchMenuIfNeeded } from "../actions";
+import { addItemToOrder, changeCategory, fetchMenuIfNeeded } from "../actions";
 
+import CartSidebar from "./CartSidebar";
 import CategoryBreadcrumbs from "./CategoryBreadcrumbs";
 
 import MenuCategoryList from "../components/MenuCategoryList";
@@ -19,6 +20,8 @@ class OrderScreen extends Component {
   constructor(props) {
     super(props);
     this.onSelectCategory = this.onSelectCategory.bind(this);
+    this.onOrder = this.onOrder.bind(this);
+    this.onCustomize = this.onCustomize.bind(this);
   }
 
   componentDidMount() {
@@ -35,9 +38,7 @@ class OrderScreen extends Component {
   getShownItems() {
     const items = Object.values(this.props.items);
     return items.filter(item => {
-      console.log(item);
       if (this.props.selectedCategory == null) {
-        console.log("Selected category NULL! Checking that");
         return item.category.length == 0;
       } else {
         return item.category.includes(this.props.selectedCategory);
@@ -45,7 +46,9 @@ class OrderScreen extends Component {
     });
   }
 
-  onOrder(itemId) {}
+  onOrder(itemId) {
+    this.props.dispatch(addItemToOrder(itemId));
+  }
 
   onCustomize(itemId) {}
 
@@ -74,11 +77,14 @@ class OrderScreen extends Component {
               categories={shownCategories}
               onCategoryPress={this.onSelectCategory}
             />}
-          {shownItems.length > 0 && <MenuItemsList items={shownItems} />}
+          {shownItems.length > 0 &&
+            <MenuItemsList
+              items={shownItems}
+              onOrderItem={this.onOrder}
+              onCustomize={this.onCustomize}
+            />}
         </View>
-        <View style={styles.orderedContainer}>
-          <Text style={styles.title}>Ordered</Text>
-        </View>
+        <CartSidebar />
       </View>
     );
   }
@@ -99,12 +105,6 @@ const styles = StyleSheet.create({
     width: "75%",
     backgroundColor: "#eee"
   },
-  orderedContainer: {
-    height: "100%",
-    padding: 20,
-    width: "25%",
-    backgroundColor: "#ccc"
-  },
   title: {
     fontSize: 19
   },
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  const { menu } = state;
+  const { menu, order } = state;
   const {
     categories,
     items,
