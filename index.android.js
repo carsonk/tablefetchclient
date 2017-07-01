@@ -7,6 +7,7 @@ import { StackNavigator } from "react-navigation";
 
 import HomeScreen from "./app/containers/HomeScreen";
 import OrderScreen from "./app/containers/OrderScreen";
+import CustomizeScreen from "./app/containers/CustomizeScreen";
 
 import configureStore from "./app/configureStore";
 
@@ -14,7 +15,8 @@ const store = configureStore();
 
 const routesConfig = {
   Home: { screen: HomeScreen },
-  Order: { screen: OrderScreen }
+  Order: { screen: OrderScreen },
+  Customize: { screen: CustomizeScreen }
 };
 
 const navigatorConfig = {

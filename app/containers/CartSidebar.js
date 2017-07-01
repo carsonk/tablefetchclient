@@ -3,11 +3,10 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { connect } from "react-redux";
 import { denormalize } from "normalizr";
 
-const CartOrderItem = props => (
+const CartOrderItem = props =>
   <View>
     <Text>{props.item.name}</Text>
-  </View>
-);
+  </View>;
 
 class CartSidebar extends Component {
   constructor(props) {

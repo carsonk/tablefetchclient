@@ -59,6 +59,9 @@ export const SUBMIT_ORDER = "SUBMIT_ORDER";
 export const SUBMIT_ORDER_SUCCESS = "SUBMIT_ORDER_SUCCESS";
 export const SUBMIT_ORDER_FAIL = "SUBMIT_ORDER_FAIL";
 export const CLEAR_ORDER_SUCCESS = "CLEAR_ORDER_SUCCESS";
+export const BEGIN_CUSTOMIZING_ITEM = "CUSTOMIZE_ITEM";
+export const ADD_CUSTOMIZING_INGREDIENT = "ADD_CUSTOMIZING_INGREDIENT";
+export const REMOVE_CUSTOMIZING_INGREDIENT = "REMOVE_CUSTOMIZING_INGREDIENT";
 
 export function addItemToOrder(
   itemId,
@@ -78,6 +81,27 @@ export function removeItemFromOrder(itemIndex) {
     type: REMOVE_ITEM_FROM_ORDER,
     itemIndex
   };
+}
+
+export function beginCustomizingitem(itemId) {
+  return {
+    type: BEGIN_CUSTOMIZING_ITEM,
+    itemId
+  };
+}
+
+export function addCustomizingIngredient(ingredientId) {
+  return {
+    type: ADD_CUSTOMIZING_INGREDIENT,
+    ingredientId
+  }
+}
+
+export function removeCustomizingIngredient(ingredientId) {
+  return {
+    type: REMOVE_CUSTOMIZING_INGREDIENT,
+    ingredientId
+  }
 }
 
 function submitOrderSucceeded() {

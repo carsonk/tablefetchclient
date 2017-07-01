@@ -8,7 +8,12 @@ import {
 } from "react-native";
 import { connect } from "react-redux";
 
-import { addItemToOrder, changeCategory, fetchMenuIfNeeded } from "../actions";
+import {
+  addItemToOrder,
+  beginCustomizingitem,
+  changeCategory,
+  fetchMenuIfNeeded
+} from "../actions";
 
 import CartSidebar from "./CartSidebar";
 import CategoryBreadcrumbs from "./CategoryBreadcrumbs";
@@ -50,7 +55,10 @@ class OrderScreen extends Component {
     this.props.dispatch(addItemToOrder(itemId));
   }
 
-  onCustomize(itemId) {}
+  onCustomize(itemId) {
+    this.props.dispatch(beginCustomizingitem(itemId));
+    this.props.navigation.navigate("Customize", {});
+  }
 
   onSelectCategory(categoryId) {
     this.props.dispatch(changeCategory(categoryId));
@@ -59,6 +67,8 @@ class OrderScreen extends Component {
   render() {
     const shownCategories = this.getShownCategories();
     const shownItems = this.getShownItems();
+
+    console.log(this.props)
 
     return (
       <View style={styles.screenContainer}>
@@ -81,7 +91,7 @@ class OrderScreen extends Component {
             <MenuItemsList
               items={shownItems}
               onOrderItem={this.onOrder}
-              onCustomize={this.onCustomize}
+              onCustomizeItem={this.onCustomize}
             />}
         </View>
         <CartSidebar />
