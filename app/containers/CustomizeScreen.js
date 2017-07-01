@@ -10,9 +10,6 @@ const IngredientCheckBox = ({ ingredient, selected, onPress }) =>
     onPress={() => onPress(ingredient.id)}
     title={ingredient.name}
     checked={selected}
-    iconType='material'
-    checkedIcon='clear'
-    uncheckedIcon='add'
   />;
 
 class CustomizeScreen extends Component {
@@ -49,6 +46,7 @@ class CustomizeScreen extends Component {
           onPress={this.onIngredientSelect}
           ingredient={ingredient}
           key={ingredient.id}
+          selected={selected}
         />
       );
     });

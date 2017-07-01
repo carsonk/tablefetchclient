@@ -65,7 +65,7 @@ export default function order(state = defaultOrderState, action) {
 
       return {
         ...state,
-        customizingAddIngredients: without(addList, [ action.ingredientId ]),
+        customizingAddIngredients: without(addList, action.ingredientId),
         customizingRemoveIngredients: union(removeList, [ action.ingredientId ])
       }
     case SUBMIT_ORDER:
