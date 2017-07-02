@@ -22,7 +22,8 @@ const defaultOrderState = {
 };
 
 export default function order(state = defaultOrderState, action) {
-  let addList = [], removeList = [];
+  let addList = [],
+    removeList = [];
 
   switch (action.type) {
     case ADD_ITEM_TO_ORDER:
@@ -58,9 +59,9 @@ export default function order(state = defaultOrderState, action) {
 
       return {
         ...state,
-        customizingAddIngredients: union(addList, [ action.ingredientId ]),
+        customizingAddIngredients: union(addList, [action.ingredientId]),
         customizingRemoveIngredients: without(removeList, action.ingredientId)
-      }
+      };
     case REMOVE_CUSTOMIZING_INGREDIENT:
       addList = state.customizingAddIngredients;
       removeList = state.customizingRemoveIngredients;
@@ -68,15 +69,15 @@ export default function order(state = defaultOrderState, action) {
       return {
         ...state,
         customizingAddIngredients: without(addList, action.ingredientId),
-        customizingRemoveIngredients: union(removeList, [ action.ingredientId ])
-      }
+        customizingRemoveIngredients: union(removeList, [action.ingredientId])
+      };
     case CLEAR_CUSTOMIZING_ITEM:
       return {
         ...state,
         customizingItemId: null,
         customizingAddIngredients: [],
         customizingRemoveIngredients: []
-      }
+      };
     case SUBMIT_ORDER:
       return {
         ...state,

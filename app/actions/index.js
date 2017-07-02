@@ -96,28 +96,34 @@ export function addCustomizingIngredient(ingredientId) {
   return {
     type: ADD_CUSTOMIZING_INGREDIENT,
     ingredientId
-  }
+  };
 }
 
 export function removeCustomizingIngredient(ingredientId) {
   return {
     type: REMOVE_CUSTOMIZING_INGREDIENT,
     ingredientId
-  }
+  };
 }
 
 export function clearCustomizingItem() {
   return {
     type: CLEAR_CUSTOMIZING_ITEM
-  }
+  };
 }
 
 export function saveCustomizingItem() {
   return (dispatch, getState) => {
     const { order } = getState();
-    dispatch(addItemToOrder(order.customizingItemId, order.customizingAddIngredients, order.customizingRemoveIngredients));
+    dispatch(
+      addItemToOrder(
+        order.customizingItemId,
+        order.customizingAddIngredients,
+        order.customizingRemoveIngredients
+      )
+    );
     dispatch(clearCustomizingItem());
-  }
+  };
 }
 
 function submitOrderSucceeded() {
