@@ -84,6 +84,7 @@ class CustomizeScreen extends Component {
             containerViewStyle={{ width: "40%" }} />
           <Button
             title="Cancel"
+            onPress={this.onCancel}
             containerViewStyle={{ width: "40%" }} />
         </View>
       </ScrollView>
