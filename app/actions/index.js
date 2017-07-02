@@ -62,6 +62,8 @@ export const CLEAR_ORDER_SUCCESS = "CLEAR_ORDER_SUCCESS";
 export const BEGIN_CUSTOMIZING_ITEM = "CUSTOMIZE_ITEM";
 export const ADD_CUSTOMIZING_INGREDIENT = "ADD_CUSTOMIZING_INGREDIENT";
 export const REMOVE_CUSTOMIZING_INGREDIENT = "REMOVE_CUSTOMIZING_INGREDIENT";
+export const CLEAR_CUSTOMIZING_ITEM = "CLEAR_CUSTOMIZING_ITEM";
+export const SAVE_CUSTOMIZING_ITEM = "SAVE_CUSTOMIZING_ITEM";
 
 export function addItemToOrder(
   itemId,
@@ -83,7 +85,7 @@ export function removeItemFromOrder(itemIndex) {
   };
 }
 
-export function beginCustomizingitem(itemId) {
+export function beginCustomizingItem(itemId) {
   return {
     type: BEGIN_CUSTOMIZING_ITEM,
     itemId
@@ -101,6 +103,20 @@ export function removeCustomizingIngredient(ingredientId) {
   return {
     type: REMOVE_CUSTOMIZING_INGREDIENT,
     ingredientId
+  }
+}
+
+export function clearCustomizingItem() {
+  return {
+    type: CLEAR_CUSTOMIZING_ITEM
+  }
+}
+
+export function saveCustomizingItem() {
+  return (dispatch, getState) => {
+    const { order } = getState();
+    dispatch(addItemToOrder(order.customizingItemId, order.customizingAddIngredients, order.customizingRemoveIngredients));
+    dispatch(clearCustomizingItem());
   }
 }
 

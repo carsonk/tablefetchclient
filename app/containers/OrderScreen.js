@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 
 import {
   addItemToOrder,
-  beginCustomizingitem,
+  beginCustomizingItem,
   changeCategory,
   fetchMenuIfNeeded
 } from "../actions";
@@ -56,7 +56,7 @@ class OrderScreen extends Component {
   }
 
   onCustomize(itemId) {
-    this.props.dispatch(beginCustomizingitem(itemId));
+    this.props.dispatch(beginCustomizingItem(itemId));
     this.props.navigation.navigate("Customize", {});
   }
 
@@ -67,8 +67,6 @@ class OrderScreen extends Component {
   render() {
     const shownCategories = this.getShownCategories();
     const shownItems = this.getShownItems();
-
-    console.log(this.props)
 
     return (
       <View style={styles.screenContainer}>

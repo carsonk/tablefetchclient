@@ -4,6 +4,8 @@ import {
   BEGIN_CUSTOMIZING_ITEM,
   ADD_CUSTOMIZING_INGREDIENT,
   REMOVE_CUSTOMIZING_INGREDIENT,
+  CLEAR_CUSTOMIZING_ITEM,
+  SAVE_CUSTOMIZING_ITEM,
   SUBMIT_ORDER,
   SUBMIT_ORDER_SUCCESS,
   SUBMIT_ORDER_FAIL,
@@ -67,6 +69,13 @@ export default function order(state = defaultOrderState, action) {
         ...state,
         customizingAddIngredients: without(addList, action.ingredientId),
         customizingRemoveIngredients: union(removeList, [ action.ingredientId ])
+      }
+    case CLEAR_CUSTOMIZING_ITEM:
+      return {
+        ...state,
+        customizingItemId: null,
+        customizingAddIngredients: [],
+        customizingRemoveIngredients: []
       }
     case SUBMIT_ORDER:
       return {
