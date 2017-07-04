@@ -8,6 +8,7 @@ import { StackNavigator } from "react-navigation";
 import HomeScreen from "./app/containers/HomeScreen";
 import OrderScreen from "./app/containers/OrderScreen";
 import CustomizeScreen from "./app/containers/CustomizeScreen";
+import CheckoutScreen from "./app/containers/CheckoutScreen";
 
 import configureStore from "./app/configureStore";
 
@@ -16,9 +17,11 @@ const store = configureStore();
 const routesConfig = {
   Home: { screen: HomeScreen },
   Order: { screen: OrderScreen },
-  Customize: { screen: CustomizeScreen }
+  Customize: { screen: CustomizeScreen },
+  Checkout: { screen: CheckoutScreen }
 };
 
+// TODO: Implement navigation via Redux instead.
 const navigatorConfig = {
   initialRouteName: "Home",
   headerMode: "none"

@@ -92,7 +92,7 @@ class OrderScreen extends Component {
               onCustomizeItem={this.onCustomize}
             />}
         </View>
-        <CartSidebar />
+        <CartSidebar navigation={this.props.navigation} />
       </View>
     );
   }

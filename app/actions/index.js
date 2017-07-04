@@ -126,7 +126,7 @@ export function saveCustomizingItem() {
   };
 }
 
-function submitOrderSucceeded() {
+function submitOrderSucceeded(party = 0) {
   return {
     type: SUBMIT_ORDER_SUCCESS
   };
@@ -134,17 +134,31 @@ function submitOrderSucceeded() {
 
 function submitOrderFailed(error) {
   return {
-    type: SUBMIT_ORDER_FAIL
+    type: SUBMIT_ORDER_FAIL,
+    error
   };
 }
 
 export function submitOrder() {
-  const submitOrderUrl = requestApiUrl + "/order/";
+  const submitOrderUrl = requestApiUrl + "/orders/submit";
 
   return (dispatch, getState) => {
     dispatch({ type: SUBMIT_ORDER });
 
-    const { items } = getState();
+    const { items } = getState().order;
+
+    const submission = {
+      items: items.map((item) => {
+        return {
+          id: item.itemId,
+          add_ingredients: item.addIngredients,
+          remove_ingredients: item.removeIngredients,
+          quantity: 1
+        }
+      }),
+      party: 0,
+      member: 0
+    };
 
     const fetchConfig = {
       method: "POST",
@@ -152,14 +166,16 @@ export function submitOrder() {
         Accept: "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ items })
+      body: JSON.stringify(submission)
     };
 
     return fetch(submitOrderUrl, fetchConfig)
-      .then(response => response.json)
+      .then(response => response.json())
       .then(json => {
-        if (error in json) dispatch(submitOrderFailed(json.error));
-        else dispatch(submitOrderSucceed());
+        if (json.success)
+          dispatch(submitOrderSucceeded(json.party))
+        else
+          dispatch(submitOrderFailed(json["message"]))
       })
       .catch(error => dispatch(submitOrderFailed(error)));
   };
