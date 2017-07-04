@@ -35,7 +35,7 @@ class OrderedItemsList extends Component {
       <ScrollView style={styles.orderedList}>
         {this.getCartItems()}
       </ScrollView>
-    )
+    );
   }
 }
 
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   orderedList: {
     marginTop: 10,
     marginBottom: 10
-  },
-})
+  }
+});
 
 function mapStateToProps(state) {
   const { categories, items, ingredients } = state.menu;

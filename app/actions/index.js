@@ -148,13 +148,13 @@ export function submitOrder() {
     const { items } = getState().order;
 
     const submission = {
-      items: items.map((item) => {
+      items: items.map(item => {
         return {
           id: item.itemId,
           add_ingredients: item.addIngredients,
           remove_ingredients: item.removeIngredients,
           quantity: 1
-        }
+        };
       }),
       party: 0,
       member: 0
@@ -172,10 +172,8 @@ export function submitOrder() {
     return fetch(submitOrderUrl, fetchConfig)
       .then(response => response.json())
       .then(json => {
-        if (json.success)
-          dispatch(submitOrderSucceeded(json.party))
-        else
-          dispatch(submitOrderFailed(json["message"]))
+        if (json.success) dispatch(submitOrderSucceeded(json.party));
+        else dispatch(submitOrderFailed(json["message"]));
       })
       .catch(error => dispatch(submitOrderFailed(error)));
   };

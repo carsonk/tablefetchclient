@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { Button } from "react-native-elements"
+import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 import { denormalize } from "normalizr";
 
-import OrderedItemsList from "./OrderedItemsList"
+import OrderedItemsList from "./OrderedItemsList";
 
 class CartSidebar extends Component {
   constructor(props) {
@@ -24,7 +24,8 @@ class CartSidebar extends Component {
         <Button
           title="Checkout"
           onPress={this.onCheckout}
-          backgroundColor="olivedrab" />
+          backgroundColor="olivedrab"
+        />
       </View>
     );
   }
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
 });
 
 function mapStateToProps(state) {
-  return { };
+  return {};
 }
 
 export default connect(mapStateToProps)(CartSidebar);

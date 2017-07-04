@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { ScrollView, Text, View, StyleSheet } from "react-native";
-import { Button } from "react-native-elements"
+import { Button } from "react-native-elements";
 import { connect } from "react-redux";
 
 import CartOrderItem from "../components/MenuItemCard";
-import OrderedItemsList from "./OrderedItemsList"
+import OrderedItemsList from "./OrderedItemsList";
 
-import { submitOrder } from "../actions"
+import { submitOrder } from "../actions";
 
 class CheckoutScreen extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ class CheckoutScreen extends Component {
   }
 
   onCheckout() {
-    this.props.dispatch(submitOrder())
+    this.props.dispatch(submitOrder());
   }
 
   render() {
@@ -24,9 +24,7 @@ class CheckoutScreen extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Checkout</Text>
         <OrderedItemsList />
-        <Button
-          onPress={this.onCheckout}
-          title="Checkout" />
+        <Button onPress={this.onCheckout} title="Checkout" />
       </View>
     );
   }
@@ -40,13 +38,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 25
   },
-  itemsList: {
-
-  }
+  itemsList: {}
 });
 
 function mapStateToProps(state) {
-  return {}
+  return {};
 }
 
 export default connect(mapStateToProps)(CheckoutScreen);
